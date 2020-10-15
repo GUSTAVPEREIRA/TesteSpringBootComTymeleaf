@@ -1,14 +1,15 @@
 package br.com.pereira.mvc.mudi.model;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-
+import java.math.BigDecimal;
+import javax.persistence.Id;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
+import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
 import br.com.pereira.mvc.mudi.enums.StatusPedido;
 
@@ -24,6 +25,25 @@ public class Pedido {
 	private String urlProduto;
 	private String urlImagem;
 	private String descricao;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	private User user;
+		
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 
 	@Enumerated(EnumType.STRING)
 	private StatusPedido statusPedido;

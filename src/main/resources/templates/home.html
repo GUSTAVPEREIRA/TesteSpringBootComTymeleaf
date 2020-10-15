@@ -3,22 +3,12 @@
 	<body>		
 		<div th:replace="~{base :: logo}"></div>
 		<div class="container">
-			<div th:replace="~{base :: titulo('Meus Pedidos')}"></div>
-			<nav class="mb-3 navbar navbar-expand navbar-light bg-light d-flex justify-content-between"> 
-				<div class="navbar-nav">
-					<a th:classappend="${status} == null ? 'active'" class="nav-item nav-link" href="/">Todos</a>
-					<a th:classappend="${status} == 'aguardando' ? 'active'" class="nav-item nav-link" href="/aguardando">Aguardando</a>
-					<a th:classappend="${status} == 'aprovado' ? 'active'" class="nav-item nav-link" href="/aprovado">Aprovado</a>
-					<a th:classappend="${status} == 'entregue' ? 'active'" class="nav-item nav-link" href="/entregue">Entregue</a>
-				</div>
-				<a href="/pedido/formulario"><button class="btn btn-outline-secondary my-2 my-sm-0">Novo</button></a>
-			</nav>
+			<div th:replace="~{base :: titulo('Últimos pedidos')}"></div>
+						
 			<div class="card mt-4" th:each="pedido : ${pedidos}">
-				<th:block th:switch="${pedido.statusPedido.name()}">				
-					<div th:case="'AGUARDANDO'" class="card-header alert-warning" th:text="${pedido.nomeProduto}">Nome do Produto</div>
-					<div th:case="'APROVADO'" class="card-header alert-success" th:text="${pedido.nomeProduto}">Nome do Produto</div>
-					<div th:case="'ENTREGUE'" class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do Produto</div>
-				</th:block>
+													
+				<div class="card-header alert-dark" th:text="${pedido.nomeProduto}">Nome do Produto</div>
+				
 				<div class="card-body">
 					<div class="row">								
 						<div class="col-12 col-sm-8 mb-3">
@@ -28,8 +18,7 @@
 							</div>							
 							<div th:text="${pedido.nomeProduto}">Produto</div>
 							<div> <input class="form-control" th:value="${pedido.urlProduto}" value="url do produto"></div>
-							<div th:text="${pedido.nomeProduto}">Descrição</div>
-							<div>
+							<div class="mt-2">
 								<textarea class="form-control" th:text="${pedido.descricao}">Descrição do pedido</textarea>
 							</div>
 						</div>									
