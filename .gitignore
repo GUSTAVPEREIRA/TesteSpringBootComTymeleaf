@@ -34,7 +34,7 @@ build/
 
 
 *.java.hsp
-*.sonarj
+*.sonarj.mvn/
 *.sw*
 .DS_Store
 .settings
@@ -76,4 +76,3 @@ test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
 # MAVEN
-.mvn/
