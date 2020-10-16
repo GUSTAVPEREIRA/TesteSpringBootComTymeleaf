@@ -13,7 +13,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-
+ 
 	@Autowired
 	private DataSource dataSource;
 
@@ -33,9 +33,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-		// UserDetails user = User.builder().username("gustavo")
-		// .password(encoder.encode("gustavo"))
-		// .roles("ADM").build();
 
 		auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(encoder);
 	}
