@@ -1,15 +1,18 @@
 package br.com.pereira.mvc.mudi.model;
 
-import java.time.LocalDate;
 import java.math.BigDecimal;
-import javax.persistence.Id;
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
-import javax.persistence.ManyToOne;
-import javax.persistence.FetchType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import br.com.pereira.mvc.mudi.enums.StatusPedido;
 
@@ -26,6 +29,7 @@ public class Pedido {
 	private String urlImagem;
 	private String descricao;
 	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
 		
