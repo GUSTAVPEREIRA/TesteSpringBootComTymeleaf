@@ -76,4 +76,4 @@ test-output
 atlassian-ide-plugin.xml
 .gradletasknamecache
 # MAVEN
-*.mvn
+.mvn/
