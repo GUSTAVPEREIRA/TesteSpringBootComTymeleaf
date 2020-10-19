@@ -27,9 +27,9 @@
 								<div class="col-12 col-sm-7">Data da entrega:<span th:text="${#temporals.format(pedido.dataDaEntrega, 'dd/MM/yyyy')}">10/02/2020</span></div>
 							</div>							
 							<div th:text="${pedido.nomeProduto}">Produto</div>
-							<div> <input class="form-control" th:value="${pedido.urlProduto}" value="url do produto"></div>
+							<div> <a class="form-control" th:href="${pedido.urlProduto}" th:text="${pedido.urlProduto}" href="" target="_blank"></a></div>
 							<div class="mt-2">
-								<textarea class="form-control" th:text="${pedido.descricao}">Descrição do pedido</textarea>
+								<textarea disabled class="form-control" th:text="${pedido.descricao}">Descrição do pedido</textarea>
 							</div>
 						</div>									
 						<div class="col-12 col-sm-4">
